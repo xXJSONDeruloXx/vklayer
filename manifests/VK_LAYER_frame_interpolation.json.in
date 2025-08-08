@@ -1,0 +1,25 @@
+{
+    "file_format_version": "1.0.0",
+    "layer": {
+        "name": "VK_LAYER_frame_interpolation",
+        "type": "GLOBAL",
+        "library_path": "@CMAKE_INSTALL_PREFIX@/lib/VK_LAYER_frame_interpolation.so",
+        "api_version": "1.3.0",
+        "implementation_version": "1",
+        "description": "Frame interpolation layer with swapchain monitoring and HUD - Stage 0",
+        "functions": {
+            "vkGetInstanceProcAddr": "vkGetInstanceProcAddr",
+            "vkGetDeviceProcAddr": "vkGetDeviceProcAddr"
+        },
+        "instance_extensions": [],
+        "device_extensions": [
+            "VK_KHR_swapchain"
+        ],
+        "enable_environment": {
+            "VK_LAYER_FRAME_INTERPOLATION_ENABLE": "1"
+        },
+        "disable_environment": {
+            "VK_LAYER_FRAME_INTERPOLATION_DISABLE": "1"
+        }
+    }
+}

@@ -52,8 +52,23 @@ target_link_libraries(VK_LAYER_text_overlay PRIVATE
     dl
 )
 
+# Create the frame interpolation layer library
+add_library(VK_LAYER_frame_interpolation SHARED
+    src/frame_interpolation_layer.cpp
+)
+
+target_include_directories(VK_LAYER_frame_interpolation PRIVATE
+    ${Vulkan_INCLUDE_DIRS}
+    include
+)
+
+target_link_libraries(VK_LAYER_frame_interpolation PRIVATE
+    ${Vulkan_LIBRARIES}
+    dl
+)
+
 # Set library properties for all layers
-set_target_properties(VK_LAYER_logger VK_LAYER_green_tint VK_LAYER_text_overlay PROPERTIES
+set_target_properties(VK_LAYER_logger VK_LAYER_green_tint VK_LAYER_text_overlay VK_LAYER_frame_interpolation PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
     PREFIX ""
 )
@@ -77,8 +92,14 @@ configure_file(
     @ONLY
 )
 
+configure_file(
+    ${CMAKE_SOURCE_DIR}/manifests/VK_LAYER_frame_interpolation.json.in
+    ${CMAKE_BINARY_DIR}/manifests/VK_LAYER_frame_interpolation.json
+    @ONLY
+)
+
 # Installation
-install(TARGETS VK_LAYER_logger VK_LAYER_green_tint VK_LAYER_text_overlay
+install(TARGETS VK_LAYER_logger VK_LAYER_green_tint VK_LAYER_text_overlay VK_LAYER_frame_interpolation
     LIBRARY DESTINATION lib
 )
 
@@ -86,6 +107,7 @@ install(FILES
     ${CMAKE_BINARY_DIR}/manifests/VK_LAYER_logger.json
     ${CMAKE_BINARY_DIR}/manifests/VK_LAYER_green_tint.json
     ${CMAKE_BINARY_DIR}/manifests/VK_LAYER_text_overlay.json
+    ${CMAKE_BINARY_DIR}/manifests/VK_LAYER_frame_interpolation.json
     DESTINATION share/vulkan/explicit_layer.d
 )
 
