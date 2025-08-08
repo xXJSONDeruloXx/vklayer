@@ -1,0 +1,19 @@
+{
+    "file_format_version" : "1.2.0",
+    "layer" : {
+        "name": "VK_LAYER_text_overlay",
+        "type": "GLOBAL",
+        "library_path": "@CMAKE_INSTALL_PREFIX@/lib/VK_LAYER_text_overlay.so",
+        "api_version": "1.3.280",
+        "implementation_version": "1",
+        "description": "Text overlay layer that displays Lorem Ipsum text",
+        "introduction": "This layer overlays Lorem Ipsum text over Vulkan applications",
+        "functions": {
+            "vkGetInstanceProcAddr": "vkGetInstanceProcAddr",
+            "vkGetDeviceProcAddr": "vkGetDeviceProcAddr"
+        },
+        "instance_extensions": [],
+        "device_extensions": [],
+        "enable_environment": {}
+    }
+}

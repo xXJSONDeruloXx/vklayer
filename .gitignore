@@ -1,0 +1,48 @@
+# Build directories
+build/
+Build/
+BUILD/
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+
+# Generated libraries
+*.so
+*.so.*
+*.dll
+*.dylib
+*.a
+
+# Object files
+*.o
+*.obj
+
+# Generated manifests (should use templates instead)
+VK_LAYER_*.json
+!manifests/VK_LAYER_*.json.in
+
+# Local test manifests
+*_local.json
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
